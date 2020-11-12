@@ -2,7 +2,8 @@ import React from "react";
 
 function Note() {
   return (
-    <div className="note note h1 note p">
+    //Classes must be added to html elements not custom tags
+    <div className="note">
       <h1>Title</h1>
       <p>Content</p>
     </div>
