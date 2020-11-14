@@ -1,17 +1,13 @@
 import React from "react";
 
-function Note() {
+function Note(props) {
   return (
     //Classes must be added to html elements not custom tags
     <div className="note">
-      <h1>Title</h1>
-      <p>Content</p>
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
     </div>
   );
 }
 
 export default Note;
-
-
-// className="header h1"
-// className="note p"
