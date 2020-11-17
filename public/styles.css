@@ -61,7 +61,7 @@ footer p {
 .note button {
   position: relative;
   float: right;
-  margin-right: 10px;
+  margin-right: 20px;
   color: #f5ba13;
   border: none;
   width: 36px;
@@ -104,4 +104,8 @@ form button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+.delete-button{
+  background-color: #fff;
 }

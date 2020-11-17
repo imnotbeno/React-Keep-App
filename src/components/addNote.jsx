@@ -1,25 +1,14 @@
 import React, { useState } from "react";
 
-function AddNote() {
-  //For add button state handling  
-  const [isClicked, setClick] = useState(false);
-  
+function InputNote(props) {
   //For input state handling
   const [inputText, setInputText] = useState({
     title: "",
     content: "",
   });
 
-  //Function for handling the button states
-  function handleClick() {
-    //To dela
-    console.log("I've been clicked");
-    setClick(true);
-  }
-
   //Function to handle change of input text and states
   function handleChange(event) {
-
     //Grabbing the name of input that was changed and its value
     //via the event that triggered it
     const { value, name } = event.target;
@@ -49,7 +38,6 @@ function AddNote() {
         onChange={handleChange}
         placeholder="Title"
         value={inputText.title}
-        {...console.log(inputText.title)}
       />
       <input
         name="content"
@@ -58,13 +46,17 @@ function AddNote() {
         placeholder="Write a note..."
         rows="3"
         value={inputText.content}
-        {...console.log(inputText.content)}
       />
-      <button type="submit" onClick={handleClick}>
+      <button
+        onClick={(event) => {
+          props.addClick(inputText, event);
+          setInputText({ title: "", content: "" });
+        }}
+      >
         Add
       </button>
     </form>
   );
 }
 
-export default AddNote;
+export default InputNote;
