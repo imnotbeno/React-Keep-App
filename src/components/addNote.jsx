@@ -1,22 +1,31 @@
 import React, { useState } from "react";
 
 function AddNote() {
+  //For add button state handling  
   const [isClicked, setClick] = useState(false);
+  
+  //For input state handling
   const [inputText, setInputText] = useState({
     title: "",
     content: "",
   });
 
+  //Function for handling the button states
   function handleClick() {
     //To dela
     console.log("I've been clicked");
     setClick(true);
   }
 
-  //Function to handle change of input text
+  //Function to handle change of input text and states
   function handleChange(event) {
+
+    //Grabbing the name of input that was changed and its value
+    //via the event that triggered it
     const { value, name } = event.target;
 
+    //setting up the new input value by changing the elements of
+    //the previous note object with elements from the new one
     setInputText((prevValue) => {
       if (name === "title") {
         return {
