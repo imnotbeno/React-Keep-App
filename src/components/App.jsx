@@ -3,18 +3,16 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import notes from "../notes";
+import AddNote from "./addNote";
 
 function App() {
   return (
     <div>
       <Header />
-      {notes.map(note => {
+      <AddNote />
+      {notes.map((note) => {
         return (
-          <Note 
-            key={note.key} 
-            title={note.title} 
-            content={note.content} 
-          />
+          <Note key={note.key} title={note.title} content={note.content} />
         );
       })}
       <Footer />
