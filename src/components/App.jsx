@@ -10,11 +10,20 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   //Function for handling the button states
-  function addNote(inputText,event) {
+  function addNote(inputText, event) {
     event.preventDefault();
     setNotes((prevNotes) => {
       return [...prevNotes, inputText];
     });
+  }
+
+  function deleteNote(id) {
+    setNotes((prevNotes) => {
+      return prevNotes.filter((note, index) => {
+        return index !== id;
+      });
+    });
+    console.log(id);
   }
 
   return (
@@ -22,10 +31,12 @@ function App() {
       <Header />
       <InputNote addClick={addNote} />
       {notes.map((note, index) => (
-        <Note 
+        <Note
           key={index}
+          id={index}
           title={note.title}
           content={note.content}
+          deleteNote={deleteNote}
         />
       ))}
       <Footer />
