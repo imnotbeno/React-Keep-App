@@ -31,7 +31,7 @@ function InputNote(props) {
   }
 
   return (
-    <form>
+    <form className="create-note">
       <input
         name="title"
         type="text"
@@ -39,7 +39,7 @@ function InputNote(props) {
         placeholder="Title"
         value={inputText.title}
       />
-      <input
+      <textarea
         name="content"
         type="text"
         onChange={handleChange}
