@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import AddTwoToneIcon from "@material-ui/icons/AddTwoTone";
+import Fab from "@material-ui/core/Fab";
+import Zoom from "@material-ui/core/Zoom";
 
 function InputNote(props) {
+  //States for expansion handling
+  const [isExpanded, setExpanded] = useState(false);
+
   //For input state handling
   const [inputText, setInputText] = useState({
     title: "",
@@ -30,31 +36,41 @@ function InputNote(props) {
     });
   }
 
+  function expand() {
+    setExpanded(true);
+  }
+
   return (
     <form className="create-note">
-      <input
-        name="title"
-        type="text"
-        onChange={handleChange}
-        placeholder="Title"
-        value={inputText.title}
-      />
+      {isExpanded ? (
+        <input
+          name="title"
+          type="text"
+          onChange={handleChange}
+          placeholder="Title"
+          value={inputText.title}
+        />
+      ) : null}
+
       <textarea
         name="content"
         type="text"
+        onClick={expand}
         onChange={handleChange}
         placeholder="Write a note..."
-        rows="3"
+        rows={isExpanded ? 3 : 1}
         value={inputText.content}
       />
-      <button
-        onClick={(event) => {
-          props.addClick(inputText, event);
-          setInputText({ title: "", content: "" });
-        }}
-      >
-        Add
-      </button>
+      <Zoom in={isExpanded}>
+        <Fab
+          onClick={(event) => {
+            props.addClick(inputText, event);
+            setInputText({ title: "", content: "" });
+          }}
+        >
+          <AddTwoToneIcon />
+        </Fab>
+      </Zoom>
     </form>
   );
 }

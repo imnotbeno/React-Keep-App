@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 
 function Note(props) {
   return (
@@ -12,7 +13,7 @@ function Note(props) {
           props.deleteNote(props.id);
         }}
       >
-        DELETE
+        <DeleteTwoToneIcon />
       </button>
     </div>
   );

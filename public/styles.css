@@ -8,6 +8,8 @@ html {
 }
 body {
   background: #eee;
+  background-color: #dadbd8;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   padding: 0 16px;
 }
 
